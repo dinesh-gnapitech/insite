@@ -2,11 +2,7 @@ import pyodbc
 import pandas as pd
 
 # Connection details for MS SQL Server
-server = 'your_server_name'
-database = 'your_database_name'
-username = 'your_username'
-password = 'your_password'
-connection_string = f"DRIVER={{SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password}"
+connection_string = "DRIVER={SQL Server};SERVER=SQLGISTRXTST.lgeenergy.int;DATABASE=LKE_Insite;UID=electric;PWD=W3rockth3hous3"
 connection = pyodbc.connect(connection_string)
 
 # SQL JOIN query
@@ -54,7 +50,7 @@ LEFT JOIN
 data = pd.read_sql_query(query, connection)
 
 # Export the data to a CSV file
-csv_file_path = 'Structure_pole_join_data.csv'
+csv_file_path = 'Structure_pole_join_full_data.csv'
 data.to_csv(csv_file_path, index=False)
 
 # Close the connection
