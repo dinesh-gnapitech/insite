@@ -4,7 +4,7 @@ from fpdf import FPDF
 # Database connection details
 connection_string = "DRIVER={SQL Server};SERVER=SQLGISTRXTST.lgeenergy.int;DATABASE=GISTRX;UID=electric;PWD=W3rockth3hous3"
 
-SCHEMA_NAME = 'dbo'  # schema name
+SCHEMA_NAME = 'electric'  # schema name
 
 # Function to get table counts
 def get_table_counts():

@@ -3,13 +3,8 @@ import openpyxl
 from openpyxl import Workbook
 
 # Database connection details
-DB_CONFIG = {
-    'driver': 'SQL Server',         # Use the appropriate ODBC driver
-    'server': 'your_server_name',   # MSSQL Server name or IP
-    'database': 'your_database',    # Target database
-    'username': 'your_username',    # Username for the database
-    'password': 'your_password',    # Password for the database
-}
+connection_string = "DRIVER={SQL Server};SERVER=SQLGISTRXTST.lgeenergy.int;DATABASE=LKE_Insite;UID=electric;PWD=W3rockth3hous3"
+
 
 SCHEMA_NAME = 'dbo'  # Replace with your schema name, e.g., 'dbo' for the default schema
 
@@ -17,13 +12,7 @@ SCHEMA_NAME = 'dbo'  # Replace with your schema name, e.g., 'dbo' for the defaul
 def get_table_counts():
     try:
         # Connect to MSSQL Server
-        conn = pyodbc.connect(
-            f"DRIVER={{{DB_CONFIG['driver']}}};"
-            f"SERVER={DB_CONFIG['server']};"
-            f"DATABASE={DB_CONFIG['database']};"
-            f"UID={DB_CONFIG['username']};"
-            f"PWD={DB_CONFIG['password']}"
-        )
+        conn = pyodbc.connect(connection_string)
         cursor = conn.cursor()
         
         # Get all tables in the specified schema
@@ -48,6 +37,8 @@ def get_table_counts():
             cursor.execute(query)
             count = cursor.fetchone()[0]
             table_counts.append((table_name, count))
+            print("Table Name:",table_name)
+            print("No. of Records:",count)
         
         # Close the connection
         cursor.close()
@@ -80,6 +71,6 @@ def generate_excel(table_counts, output_file):
 if __name__ == "__main__":
     table_counts = get_table_counts()
     if table_counts:
-        generate_excel(table_counts, "table_counts_mssql.xlsx")
+        generate_excel(table_counts, "LKE_Insite_DB_table_entries_count_(LKE_Side).xlsx")
     else:
         print("No tables found or an error occurred.")
