@@ -11,8 +11,10 @@ SELECT DISTINCT TOP 10000
     s.STR_ID AS Structure_ID,
     s.STR_NUM AS Structure_Number,
     s.LINE_NAME1 AS Line_Name,
+	s.NUM_CIRCUITS AS Number_of_Circuits,
     s.STATUS AS Structure_Status,
     s.OWNER AS Structure_Owner,
+	s.PMD AS Old_Primary_Circuit_ID,
     s.COMMENTS AS Structure_Comments,
 	s.GlobalID AS Structure_Global_ID,
 	s.OBJECTID AS Structure_Object_ID,
@@ -48,7 +50,7 @@ WHERE
 data = pd.read_sql_query(query, connection)
 
 # Export the data to a CSV file
-csv_file_path = 'NewStructureINSPECTIONFULLWithGlobal_ID_10000_records.csv'
+csv_file_path = 'inspection_data_related_to_structures_10000_records.csv'
 data.to_csv(csv_file_path, index=False)
 
 # Close the connection
