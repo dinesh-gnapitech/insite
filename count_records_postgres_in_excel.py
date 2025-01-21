@@ -4,14 +4,14 @@ from openpyxl import Workbook
 
 # Database connection details
 DB_CONFIG = {
-    'dbname': 'your_database',
-    'user': 'your_username',
-    'password': 'your_password',
-    'host': 'your_host',
-    'port': 'your_port'
+    'dbname': 'iqgeo_dev',
+    'user': 'iqgeo',
+    'password': 'kl=awr5tru2ldreWi9e2',
+    'host': 'pplz-psql-iqgeo-ky-trx-d.postgres.database.azure.com',
+    'port': 5432
 }
 
-SCHEMA_NAME = 'your_schema'  # Replace with your schema name, e.g., 'public'
+SCHEMA_NAME = 'mywetl'  # Replace with your schema name, e.g., 'public'
 
 # Function to get table counts
 def get_table_counts():
@@ -65,6 +65,8 @@ def generate_excel(table_counts, output_file):
     # Add table counts
     for table_name, count in table_counts:
         ws.append([table_name, count])
+        print("Table Name:",table_name)
+        print("No. of Records:",count)
 
     # Save the Excel file
     wb.save(output_file)
@@ -73,6 +75,6 @@ def generate_excel(table_counts, output_file):
 if __name__ == "__main__":
     table_counts = get_table_counts()
     if table_counts:
-        generate_excel(table_counts, "table_counts_postgres.xlsx")
+        generate_excel(table_counts, "iqgeo_dev_DB_table_entries_count_(IQGeO_Side).xlsx")
     else:
         print("No tables found or an error occurred.")
