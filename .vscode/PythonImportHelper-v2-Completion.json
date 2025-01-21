@@ -1,0 +1,304 @@
+[
+    {
+        "label": "pyodbc",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pyodbc",
+        "description": "pyodbc",
+        "detail": "pyodbc",
+        "documentation": {}
+    },
+    {
+        "label": "FPDF",
+        "importPath": "fpdf",
+        "description": "fpdf",
+        "isExtraImport": true,
+        "detail": "fpdf",
+        "documentation": {}
+    },
+    {
+        "label": "FPDF",
+        "importPath": "fpdf",
+        "description": "fpdf",
+        "isExtraImport": true,
+        "detail": "fpdf",
+        "documentation": {}
+    },
+    {
+        "label": "openpyxl",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "openpyxl",
+        "description": "openpyxl",
+        "detail": "openpyxl",
+        "documentation": {}
+    },
+    {
+        "label": "Workbook",
+        "importPath": "openpyxl",
+        "description": "openpyxl",
+        "isExtraImport": true,
+        "detail": "openpyxl",
+        "documentation": {}
+    },
+    {
+        "label": "Workbook",
+        "importPath": "openpyxl",
+        "description": "openpyxl",
+        "isExtraImport": true,
+        "detail": "openpyxl",
+        "documentation": {}
+    },
+    {
+        "label": "psycopg2",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "psycopg2",
+        "description": "psycopg2",
+        "detail": "psycopg2",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "get_table_counts",
+        "kind": 2,
+        "importPath": "count_records_mssql",
+        "description": "count_records_mssql",
+        "peekOfCode": "def get_table_counts():\n    try:\n        # Connect to MSSQL Server\n        conn = pyodbc.connect(connection_string)\n        cursor = conn.cursor()\n        # Get all tables in the specified schema\n        cursor.execute(f\"\"\"\n            SELECT TABLE_NAME\n            FROM INFORMATION_SCHEMA.TABLES\n            WHERE TABLE_SCHEMA = '{SCHEMA_NAME}' AND TABLE_TYPE = 'BASE TABLE';",
+        "detail": "count_records_mssql",
+        "documentation": {}
+    },
+    {
+        "label": "generate_pdf",
+        "kind": 2,
+        "importPath": "count_records_mssql",
+        "description": "count_records_mssql",
+        "peekOfCode": "def generate_pdf(table_counts, output_file):\n    pdf = FPDF()\n    pdf.set_auto_page_break(auto=True, margin=15)\n    pdf.add_page()\n    pdf.set_font(\"Arial\", size=12)\n    pdf.cell(200, 10, txt=f\"Table Record Counts in Schema: {SCHEMA_NAME}\", ln=True, align='C')\n    pdf.ln(10)\n    pdf.set_font(\"Arial\", size=10)\n    pdf.cell(50, 10, txt=\"Table Name\", border=1, align='C')\n    pdf.cell(50, 10, txt=\"Record Count\", border=1, align='C')",
+        "detail": "count_records_mssql",
+        "documentation": {}
+    },
+    {
+        "label": "connection_string",
+        "kind": 5,
+        "importPath": "count_records_mssql",
+        "description": "count_records_mssql",
+        "peekOfCode": "connection_string = \"DRIVER={SQL Server};SERVER=SQLGISTRXTST.lgeenergy.int;DATABASE=GISTRX;UID=electric;PWD=W3rockth3hous3\"\nSCHEMA_NAME = 'electric'  # schema name\n# Function to get table counts\ndef get_table_counts():\n    try:\n        # Connect to MSSQL Server\n        conn = pyodbc.connect(connection_string)\n        cursor = conn.cursor()\n        # Get all tables in the specified schema\n        cursor.execute(f\"\"\"",
+        "detail": "count_records_mssql",
+        "documentation": {}
+    },
+    {
+        "label": "SCHEMA_NAME",
+        "kind": 5,
+        "importPath": "count_records_mssql",
+        "description": "count_records_mssql",
+        "peekOfCode": "SCHEMA_NAME = 'electric'  # schema name\n# Function to get table counts\ndef get_table_counts():\n    try:\n        # Connect to MSSQL Server\n        conn = pyodbc.connect(connection_string)\n        cursor = conn.cursor()\n        # Get all tables in the specified schema\n        cursor.execute(f\"\"\"\n            SELECT TABLE_NAME",
+        "detail": "count_records_mssql",
+        "documentation": {}
+    },
+    {
+        "label": "get_table_counts",
+        "kind": 2,
+        "importPath": "count_records_mssql_in_excel",
+        "description": "count_records_mssql_in_excel",
+        "peekOfCode": "def get_table_counts():\n    try:\n        # Connect to MSSQL Server\n        conn = pyodbc.connect(connection_string)\n        cursor = conn.cursor()\n        # Get all tables in the specified schema\n        cursor.execute(f\"\"\"\n            SELECT TABLE_NAME\n            FROM INFORMATION_SCHEMA.TABLES\n            WHERE TABLE_SCHEMA = '{SCHEMA_NAME}' AND TABLE_TYPE = 'BASE TABLE';",
+        "detail": "count_records_mssql_in_excel",
+        "documentation": {}
+    },
+    {
+        "label": "generate_excel",
+        "kind": 2,
+        "importPath": "count_records_mssql_in_excel",
+        "description": "count_records_mssql_in_excel",
+        "peekOfCode": "def generate_excel(table_counts, output_file):\n    # Create a new workbook\n    wb = Workbook()\n    ws = wb.active\n    ws.title = \"Table Record Counts\"\n    # Add headers\n    ws.append([\"Table Name\", \"Record Count\"])\n    # Add table counts\n    for table_name, count in table_counts:\n        ws.append([table_name, count])",
+        "detail": "count_records_mssql_in_excel",
+        "documentation": {}
+    },
+    {
+        "label": "connection_string",
+        "kind": 5,
+        "importPath": "count_records_mssql_in_excel",
+        "description": "count_records_mssql_in_excel",
+        "peekOfCode": "connection_string = \"DRIVER={SQL Server};SERVER=SQLGISTRXTST.lgeenergy.int;DATABASE=LKE_Insite;UID=electric;PWD=W3rockth3hous3\"\nSCHEMA_NAME = 'dbo'  # Replace with your schema name, e.g., 'dbo' for the default schema\n# Function to get table counts\ndef get_table_counts():\n    try:\n        # Connect to MSSQL Server\n        conn = pyodbc.connect(connection_string)\n        cursor = conn.cursor()\n        # Get all tables in the specified schema\n        cursor.execute(f\"\"\"",
+        "detail": "count_records_mssql_in_excel",
+        "documentation": {}
+    },
+    {
+        "label": "SCHEMA_NAME",
+        "kind": 5,
+        "importPath": "count_records_mssql_in_excel",
+        "description": "count_records_mssql_in_excel",
+        "peekOfCode": "SCHEMA_NAME = 'dbo'  # Replace with your schema name, e.g., 'dbo' for the default schema\n# Function to get table counts\ndef get_table_counts():\n    try:\n        # Connect to MSSQL Server\n        conn = pyodbc.connect(connection_string)\n        cursor = conn.cursor()\n        # Get all tables in the specified schema\n        cursor.execute(f\"\"\"\n            SELECT TABLE_NAME",
+        "detail": "count_records_mssql_in_excel",
+        "documentation": {}
+    },
+    {
+        "label": "get_table_counts",
+        "kind": 2,
+        "importPath": "count_records_postgres",
+        "description": "count_records_postgres",
+        "peekOfCode": "def get_table_counts():\n    try:\n        # Connect to PostgreSQL\n        conn = psycopg2.connect(**DB_CONFIG)\n        cursor = conn.cursor()\n        # Get all tables in the specified schema\n        cursor.execute(f\"\"\"\n            SELECT table_name\n            FROM information_schema.tables\n            WHERE table_schema = '{SCHEMA_NAME}' AND table_type = 'BASE TABLE';",
+        "detail": "count_records_postgres",
+        "documentation": {}
+    },
+    {
+        "label": "generate_pdf",
+        "kind": 2,
+        "importPath": "count_records_postgres",
+        "description": "count_records_postgres",
+        "peekOfCode": "def generate_pdf(table_counts, output_file):\n    pdf = FPDF()\n    pdf.set_auto_page_break(auto=True, margin=15)\n    pdf.add_page()\n    pdf.set_font(\"Arial\", size=12)\n    pdf.cell(200, 10, txt=f\"Table Record Counts in Schema: {SCHEMA_NAME}\", ln=True, align='C')\n    pdf.ln(10)\n    pdf.set_font(\"Arial\", size=10)\n    pdf.cell(50, 10, txt=\"Table Name\", border=1, align='C')\n    pdf.cell(50, 10, txt=\"Record Count\", border=1, align='C')",
+        "detail": "count_records_postgres",
+        "documentation": {}
+    },
+    {
+        "label": "DB_CONFIG",
+        "kind": 5,
+        "importPath": "count_records_postgres",
+        "description": "count_records_postgres",
+        "peekOfCode": "DB_CONFIG = {\n    'dbname': 'your_database',\n    'user': 'your_username',\n    'password': 'your_password',\n    'host': 'your_host',\n    'port': 'your_port'\n}\nSCHEMA_NAME = 'your_schema'\n# Function to get table counts\ndef get_table_counts():",
+        "detail": "count_records_postgres",
+        "documentation": {}
+    },
+    {
+        "label": "SCHEMA_NAME",
+        "kind": 5,
+        "importPath": "count_records_postgres",
+        "description": "count_records_postgres",
+        "peekOfCode": "SCHEMA_NAME = 'your_schema'\n# Function to get table counts\ndef get_table_counts():\n    try:\n        # Connect to PostgreSQL\n        conn = psycopg2.connect(**DB_CONFIG)\n        cursor = conn.cursor()\n        # Get all tables in the specified schema\n        cursor.execute(f\"\"\"\n            SELECT table_name",
+        "detail": "count_records_postgres",
+        "documentation": {}
+    },
+    {
+        "label": "get_table_counts",
+        "kind": 2,
+        "importPath": "count_records_postgres_in_excel",
+        "description": "count_records_postgres_in_excel",
+        "peekOfCode": "def get_table_counts():\n    try:\n        # Connect to PostgreSQL\n        conn = psycopg2.connect(**DB_CONFIG)\n        cursor = conn.cursor()\n        # Get all tables in the specified schema\n        cursor.execute(f\"\"\"\n            SELECT table_name\n            FROM information_schema.tables\n            WHERE table_schema = '{SCHEMA_NAME}' AND table_type = 'BASE TABLE';",
+        "detail": "count_records_postgres_in_excel",
+        "documentation": {}
+    },
+    {
+        "label": "generate_excel",
+        "kind": 2,
+        "importPath": "count_records_postgres_in_excel",
+        "description": "count_records_postgres_in_excel",
+        "peekOfCode": "def generate_excel(table_counts, output_file):\n    # Create a new workbook\n    wb = Workbook()\n    ws = wb.active\n    ws.title = \"Table Record Counts\"\n    # Add headers\n    ws.append([\"Table Name\", \"Record Count\"])\n    # Add table counts\n    for table_name, count in table_counts:\n        ws.append([table_name, count])",
+        "detail": "count_records_postgres_in_excel",
+        "documentation": {}
+    },
+    {
+        "label": "DB_CONFIG",
+        "kind": 5,
+        "importPath": "count_records_postgres_in_excel",
+        "description": "count_records_postgres_in_excel",
+        "peekOfCode": "DB_CONFIG = {\n    'dbname': 'your_database',\n    'user': 'your_username',\n    'password': 'your_password',\n    'host': 'your_host',\n    'port': 'your_port'\n}\nSCHEMA_NAME = 'your_schema'  # Replace with your schema name, e.g., 'public'\n# Function to get table counts\ndef get_table_counts():",
+        "detail": "count_records_postgres_in_excel",
+        "documentation": {}
+    },
+    {
+        "label": "SCHEMA_NAME",
+        "kind": 5,
+        "importPath": "count_records_postgres_in_excel",
+        "description": "count_records_postgres_in_excel",
+        "peekOfCode": "SCHEMA_NAME = 'your_schema'  # Replace with your schema name, e.g., 'public'\n# Function to get table counts\ndef get_table_counts():\n    try:\n        # Connect to PostgreSQL\n        conn = psycopg2.connect(**DB_CONFIG)\n        cursor = conn.cursor()\n        # Get all tables in the specified schema\n        cursor.execute(f\"\"\"\n            SELECT table_name",
+        "detail": "count_records_postgres_in_excel",
+        "documentation": {}
+    },
+    {
+        "label": "connection_string",
+        "kind": 5,
+        "importPath": "export_join",
+        "description": "export_join",
+        "peekOfCode": "connection_string = \"DRIVER={SQL Server};SERVER=SQLGISTRXTST.lgeenergy.int;DATABASE=LKE_Insite;UID=electric;PWD=W3rockth3hous3\"\nconnection = pyodbc.connect(connection_string)\n# SQL JOIN query\nquery = \"\"\"\nSELECT \n    -- Structure Details\n    s.STR_ID AS Structure_ID,\n    s.STR_NUM AS Structure_Number,\n    s.LINEID_1 AS Line_ID,\n    s.LINE_NAME1 AS Line_Name,",
+        "detail": "export_join",
+        "documentation": {}
+    },
+    {
+        "label": "connection",
+        "kind": 5,
+        "importPath": "export_join",
+        "description": "export_join",
+        "peekOfCode": "connection = pyodbc.connect(connection_string)\n# SQL JOIN query\nquery = \"\"\"\nSELECT \n    -- Structure Details\n    s.STR_ID AS Structure_ID,\n    s.STR_NUM AS Structure_Number,\n    s.LINEID_1 AS Line_ID,\n    s.LINE_NAME1 AS Line_Name,\n    s.NUM_CIRCUITS AS Num_Circuits,",
+        "detail": "export_join",
+        "documentation": {}
+    },
+    {
+        "label": "query",
+        "kind": 5,
+        "importPath": "export_join",
+        "description": "export_join",
+        "peekOfCode": "query = \"\"\"\nSELECT \n    -- Structure Details\n    s.STR_ID AS Structure_ID,\n    s.STR_NUM AS Structure_Number,\n    s.LINEID_1 AS Line_ID,\n    s.LINE_NAME1 AS Line_Name,\n    s.NUM_CIRCUITS AS Num_Circuits,\n    s.STR_TYPE AS Structure_Type,\n    s.STR_MAT AS Structure_Material,",
+        "detail": "export_join",
+        "documentation": {}
+    },
+    {
+        "label": "data",
+        "kind": 5,
+        "importPath": "export_join",
+        "description": "export_join",
+        "peekOfCode": "data = pd.read_sql_query(query, connection)\n# Export the data to a CSV file\ncsv_file_path = 'Structure_pole_join_full_data.csv'\ndata.to_csv(csv_file_path, index=False)\n# Close the connection\nconnection.close()\nprint(f\"Data exported successfully to {csv_file_path}\")",
+        "detail": "export_join",
+        "documentation": {}
+    },
+    {
+        "label": "csv_file_path",
+        "kind": 5,
+        "importPath": "export_join",
+        "description": "export_join",
+        "peekOfCode": "csv_file_path = 'Structure_pole_join_full_data.csv'\ndata.to_csv(csv_file_path, index=False)\n# Close the connection\nconnection.close()\nprint(f\"Data exported successfully to {csv_file_path}\")",
+        "detail": "export_join",
+        "documentation": {}
+    },
+    {
+        "label": "connection_string",
+        "kind": 5,
+        "importPath": "export_structure_inspection_join",
+        "description": "export_structure_inspection_join",
+        "peekOfCode": "connection_string = \"DRIVER={SQL Server};SERVER=SQLGISTRXTST.lgeenergy.int;DATABASE=LKE_Insite;UID=electric;PWD=W3rockth3hous3\"\nconnection = pyodbc.connect(connection_string)\n# SQL JOIN query\nquery = \"\"\"\nSELECT DISTINCT TOP 10000\n    s.STR_ID AS Structure_ID,\n    s.STR_NUM AS Structure_Number,\n    s.LINE_NAME1 AS Line_Name,\n    s.STATUS AS Structure_Status,\n    s.OWNER AS Structure_Owner,",
+        "detail": "export_structure_inspection_join",
+        "documentation": {}
+    },
+    {
+        "label": "connection",
+        "kind": 5,
+        "importPath": "export_structure_inspection_join",
+        "description": "export_structure_inspection_join",
+        "peekOfCode": "connection = pyodbc.connect(connection_string)\n# SQL JOIN query\nquery = \"\"\"\nSELECT DISTINCT TOP 10000\n    s.STR_ID AS Structure_ID,\n    s.STR_NUM AS Structure_Number,\n    s.LINE_NAME1 AS Line_Name,\n    s.STATUS AS Structure_Status,\n    s.OWNER AS Structure_Owner,\n    s.COMMENTS AS Structure_Comments,",
+        "detail": "export_structure_inspection_join",
+        "documentation": {}
+    },
+    {
+        "label": "query",
+        "kind": 5,
+        "importPath": "export_structure_inspection_join",
+        "description": "export_structure_inspection_join",
+        "peekOfCode": "query = \"\"\"\nSELECT DISTINCT TOP 10000\n    s.STR_ID AS Structure_ID,\n    s.STR_NUM AS Structure_Number,\n    s.LINE_NAME1 AS Line_Name,\n    s.STATUS AS Structure_Status,\n    s.OWNER AS Structure_Owner,\n    s.COMMENTS AS Structure_Comments,\n\ts.GlobalID AS Structure_Global_ID,\n\ts.OBJECTID AS Structure_Object_ID,",
+        "detail": "export_structure_inspection_join",
+        "documentation": {}
+    },
+    {
+        "label": "data",
+        "kind": 5,
+        "importPath": "export_structure_inspection_join",
+        "description": "export_structure_inspection_join",
+        "peekOfCode": "data = pd.read_sql_query(query, connection)\n# Export the data to a CSV file\ncsv_file_path = 'NewStructureINSPECTIONFULLWithGlobal_ID_10000_records.csv'\ndata.to_csv(csv_file_path, index=False)\n# Close the connection\nconnection.close()\nprint(f\"Data exported successfully to {csv_file_path}\")",
+        "detail": "export_structure_inspection_join",
+        "documentation": {}
+    },
+    {
+        "label": "csv_file_path",
+        "kind": 5,
+        "importPath": "export_structure_inspection_join",
+        "description": "export_structure_inspection_join",
+        "peekOfCode": "csv_file_path = 'NewStructureINSPECTIONFULLWithGlobal_ID_10000_records.csv'\ndata.to_csv(csv_file_path, index=False)\n# Close the connection\nconnection.close()\nprint(f\"Data exported successfully to {csv_file_path}\")",
+        "detail": "export_structure_inspection_join",
+        "documentation": {}
+    }
+]
