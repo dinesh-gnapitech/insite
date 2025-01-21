@@ -2,17 +2,12 @@ import pandas as pd
 import pyodbc
 
 # Load the CSV file with structure GUIDs
-csv_file_path = 'structureguids.csv'  # Update with your actual CSV file path
+csv_file_path = 'structureguid_data_eun_e_lattice_protofeature.csv'  # Update with your actual CSV file path
 csv_data = pd.read_csv(csv_file_path)
 
 # Define the database connection
-conn_str = (
-    "Driver={ODBC Driver 17 for SQL Server};"  # Update the driver version if needed
-    "Server=YOUR_SERVER_NAME;"                # Replace with your SQL Server name
-    "Database=DMK;"                           # Replace with your database name
-    "Trusted_Connection=yes;"                 # Or provide username and password if required
-)
-conn = pyodbc.connect(conn_str)
+connection_string = "DRIVER={SQL Server};SERVER=SQLGISTRXTST.lgeenergy.int;DATABASE=LKE_Insite;UID=electric;PWD=W3rockth3hous3"
+conn = pyodbc.connect(connection_string)
 
 # SQL query template
 query = """

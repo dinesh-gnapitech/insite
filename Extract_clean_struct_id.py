@@ -2,18 +2,26 @@ import psycopg2
 import csv
 
 # Database connection details
-DB_HOST = "your_host"
-DB_PORT = "your_port"
-DB_NAME = "your_database"
-DB_USER = "your_username"
-DB_PASSWORD = "your_password"
+DB_HOST = 'pplz-psql-iqgeo-ky-trx-d.postgres.database.azure.com'
+DB_PORT = 5432
+DB_NAME = 'iqgeo_dev'
+DB_USER = 'iqgeo'
+DB_PASSWORD = 'kl=awr5tru2ldreWi9e2'
+schema_name ='mywetl'
 
 # List of tables to process
 tables = [
-    "table1_name",
-    "table2_name",
-    "table3_name"
-    # Add more table names as needed
+    "eun_e_switch_bank_assembly_protofeature",
+"eun_e_substation_transformer_protofeature",
+"eun_e_line_switch_protofeature",
+"eun_e_substation_circuit_breaker_protofeature",
+"eun_e_substation_disconnecting_switch_protofeature",
+"eun_e_lattice_structure_protofeature",
+"eun_e_pole_protofeature",
+"eun_e_network_terminator_protofeature",
+"eun_e_pole_structure_protofeature",
+"eun_e_lattice_protofeature",
+"eun_e_support_pole_protofeature"
 ]
 
 # Base name for the output CSV files
@@ -37,7 +45,7 @@ try:
         query = f"""
             SELECT 
                 REPLACE(REPLACE(structureguid, '{{', ''), '}}', '') AS cleaned_structureguid
-            FROM {table};
+            FROM {schema_name}.{table};
         """
         cursor.execute(query)
 
