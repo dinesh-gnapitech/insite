@@ -2,27 +2,15 @@ import pyodbc
 from fpdf import FPDF
 
 # Database connection details
-DB_CONFIG = {
-    'driver': 'SQL Server',         # Use the appropriate ODBC driver
-    'server': 'your_server_name',   # MSSQL Server name or IP
-    'database': 'your_database',    # Target database
-    'username': 'your_username',    # Username for the database
-    'password': 'your_password',    # Password for the database
-}
+connection_string = "DRIVER={SQL Server};SERVER=SQLGISTRXTST.lgeenergy.int;DATABASE=GISTRX;UID=electric;PWD=W3rockth3hous3"
 
-SCHEMA_NAME = 'dbo'  # Replace with your schema name (e.g., 'dbo')
+SCHEMA_NAME = 'dbo'  # schema name
 
 # Function to get table counts
 def get_table_counts():
     try:
         # Connect to MSSQL Server
-        conn = pyodbc.connect(
-            f"DRIVER={{{DB_CONFIG['driver']}}};"
-            f"SERVER={DB_CONFIG['server']};"
-            f"DATABASE={DB_CONFIG['database']};"
-            f"UID={DB_CONFIG['username']};"
-            f"PWD={DB_CONFIG['password']}"
-        )
+        conn = pyodbc.connect(connection_string)
         cursor = conn.cursor()
         
         # Get all tables in the specified schema
@@ -37,6 +25,7 @@ def get_table_counts():
         table_counts = []
         for table in tables:
             table_name = table[0]
+            print("Table_name:",table_name)
             cursor.execute(f"SELECT COUNT(*) FROM {SCHEMA_NAME}.{table_name};")
             count = cursor.fetchone()[0]
             table_counts.append((table_name, count))
@@ -77,6 +66,6 @@ def generate_pdf(table_counts, output_file):
 if __name__ == "__main__":
     table_counts = get_table_counts()
     if table_counts:
-        generate_pdf(table_counts, "table_counts_mssql.pdf")
+        generate_pdf(table_counts, "GISTRX_DB_table_entries_count.pdf")
     else:
         print("No tables found or an error occurred.")

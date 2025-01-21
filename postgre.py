@@ -1,0 +1,1 @@
+postgrecon="postgres://avnadmin:AVNS_LRVypkGuisbKnWCWmrz@practice-practo.a.aivencloud.com:19994/defaultdb?sslmode=require"
