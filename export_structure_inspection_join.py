@@ -41,7 +41,7 @@ LEFT JOIN
 LEFT JOIN 
     WORKORDER wo ON si.WO_ID = wo.ID
 WHERE 
-    s.STR_ID IS NOT NULL AND S.GlobalID is not null;
+    s.STR_ID IS NOT NULL AND S.GlobalID is not null AND s.STR_ID = si.STR_ID ;
 """
 
 # Connect to the database
