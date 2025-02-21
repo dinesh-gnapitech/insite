@@ -6,7 +6,7 @@ csv_file_path = 'structureguid_data_eun_e_support_pole_protofeature.csv'  # Upda
 csv_data = pd.read_csv(csv_file_path)
 
 # Define the database connection
-connection_string = "DRIVER={SQL Server};SERVER=SQLGISTRXTST.lgeenergy.int;DATABASE=LKE_Insite;UID=electric;PWD=W3rockth3hous3"
+connection_string = "DRIVER={SQL Server};SERVER=SQLGISTRXTST.lgeenergy.int;DATABASE=LKE_Insite;UID=electric;PWD="
 conn = pyodbc.connect(connection_string)
 
 # Lists to store matched and unmatched GUIDs
