@@ -2,7 +2,7 @@ import pyodbc
 from fpdf import FPDF
 
 # Database connection details
-connection_string = "DRIVER={SQL Server};SERVER=SQLGISTRXTST.lgeenergy.int;DATABASE=GISTRX;UID=electric;PWD=W3rockth3hous3"
+connection_string = "DRIVER={SQL Server};SERVER=SQLGISTRXTST.lgeenergy.int;DATABASE=GISTRX;UID=electric;PWD="
 
 SCHEMA_NAME = 'electric'  # schema name
 
