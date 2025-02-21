@@ -3,7 +3,7 @@ import openpyxl
 from openpyxl import Workbook
 
 # Database connection details
-connection_string = "DRIVER={SQL Server};SERVER=SQLGISTRXTST.lgeenergy.int;DATABASE=LKE_Insite;UID=electric;PWD=W3rockth3hous3"
+connection_string = "DRIVER={SQL Server};SERVER=SQLGISTRXTST.lgeenergy.int;DATABASE=LKE_Insite;UID=electric;PWD="
 
 
 SCHEMA_NAME = 'dbo'  # Replace with your schema name, e.g., 'dbo' for the default schema
