@@ -2,7 +2,7 @@ import pyodbc
 import pandas as pd
 
 # Connection details for MS SQL Server
-connection_string = "DRIVER={SQL Server};SERVER=SQLGISTRXTST.lgeenergy.int;DATABASE=LKE_Insite;UID=electric;PWD=W3rockth3hous3"
+connection_string = "DRIVER={SQL Server};SERVER=SQLGISTRXTST.lgeenergy.int;DATABASE=LKE_Insite;UID=electric;PWD="
 connection = pyodbc.connect(connection_string)
 
 # SQL JOIN query
