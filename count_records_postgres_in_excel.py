@@ -6,7 +6,7 @@ from openpyxl import Workbook
 DB_CONFIG = {
     'dbname': 'iqgeo_dev',
     'user': 'iqgeo',
-    'password': 'kl=awr5tru2ldreWi9e2',
+    'password': 'kl=',
     'host': 'pplz-psql-iqgeo-ky-trx-d.postgres.database.azure.com',
     'port': 5432
 }
